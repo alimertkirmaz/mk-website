@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#e53935">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Motto Kurye - Yandex Resmi İş Ortağı</title>
+    <meta name="description" content="Motto Kurye - Yandex Resmi İş Ortağı">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .video-banner {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-banner video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+            z-index: -1;
+        }
+
+        .banner-content {
+            max-width: 1000px;
+            padding: 3rem;
+            background-color: transparent;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .banner-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #e53935; /* Primary red color */
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 0;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid #e53935;
+        }
+
+        .cta-button:hover {
+            background-color: #c62828; /* Darker red on hover */
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(229, 57, 53, 0.4);
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+
+        .content-section {
+            padding: 100px 0;
+            background-color: #f5f5f5;
+        }
+
+        .content-section:nth-child(even) {
+            background-color: #fff;
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        @media (max-width: 992px) {
+            .features-grid,
+            .testimonials-container {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+                gap: 1.5rem;
+            }
+            
+            .feature,
+            .testimonial-card {
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        .feature {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            color: #181a1b;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+
+        
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        .contact-info {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #e53935;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .map-title {
+            margin-bottom: 1rem;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 350px;
+            border: 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        @media (min-width: 992px) {
+            .map-container {
+                height: 450px;
+            }
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            background-color: #e53935; /* Matching the red theme */
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #c62828;
+            transform: translateY(-2px);
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 500;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .form-message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .submit-btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Testimonial Styles */
+        .section-subtitle {
+            color: #666;
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+        }
+        
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 2rem;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .testimonials-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+                margin-top: 1.5rem;
+            }
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .testimonial-card {
+                padding: 1.5rem;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .testimonial-card {
+                padding: 1.25rem;
+                border-radius: 8px;
+            }
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-rating {
+            color: #FFD700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-rating .far,
+        .testimonial-rating .fas.fa-star-half-alt {
+            color: #e0e0e0;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #e0e0e0;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .testimonial-text {
+                font-size: 0.95rem;
+                line-height: 1.5;
+                margin-bottom: 1.25rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .testimonial-text {
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        @media (max-width: 480px) {
+            .testimonial-author {
+                flex-direction: row;
+                align-items: center;
+                gap: 0.75rem;
+            }
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: #777;
+        }
+        
+        @media (max-width: 480px) {
+            .author-avatar {
+                width: 40px;
+                height: 40px;
+                font-size: 1.25rem;
+                margin-right: 0;
+            }
+        }
+        
+        .author-info h4 {
+            margin: 0;
+            color: white;
+        }
+        
+        .author-info p {
+            margin: 0;
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .author-info {
+            text-align: center;
+        }
+        
+        @media (max-width: 480px) {
+            .author-info h4 {
+                font-size: 1rem;
+            }
+            
+            .author-info p {
+                font-size: 0.85rem;
+            }
+        }
+        
+        .google-reviews-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #e53935; /* Matching the red theme */
+            color: white !important;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .google-reviews-btn:hover {
+            background: #c62828; /* Darker red on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(229, 57, 53, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .google-reviews-btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+                margin-top: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .google-reviews-btn {
+                padding: 8px 16px;
+                font-size: 0.9rem;
+                border-radius: 25px;
+            }
+        }
+        
+        /* Neden Biz Bölümü Stilleri */
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .features-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .feature {
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature i {
+            font-size: 2.5rem;
+            color: #e53935;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        #neden-biz {
+            padding-bottom: 50px;
+        }
+
+        #neden-biz .feature h3,
+        #neden-biz .feature p {
+            color: #dfdcd7;
+        }
+
+        #hakkimizda .feature h3,
+        #hakkimizda .feature p {
+            color: #f0f0f0;
+        }
+
+        .feature h3 {
+            margin: 1rem 0;
+            font-size: 1.25rem;
+        }
+
+        .feature p {
+            line-height: 1.6;
+        }
+
+        /* Mobile Menu Button */
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+            padding: 10px;
+        }
+
+        .menu-btn__lines,
+        .menu-btn__lines::before,
+        .menu-btn__lines::after {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            display: block;
+            margin: 6px 0;
+            transition: all 0.3s ease;
+        }
+
+        .menu-btn__lines::before,
+        .menu-btn__lines::after {
+            content: '';
+            position: absolute;
+        }
+
+        .menu-btn__lines::before {
+            transform: translateY(-8px);
+        }
+
+        .menu-btn__lines::after {
+            transform: translateY(8px);
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                padding: 0.5rem 1rem;
+                position: relative;
+                background-color: rgba(0, 0, 0, 0.9);
+                justify-content: center;
+            }
+            
+            .nav-logo {
+                font-size: 1.5rem;
+            }
+            
+            .menu-btn {
+                display: none;
+            }
+            
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                gap: 0.5rem;
+                position: static;
+                width: 100%;
+                margin: 0 auto;
+                height: auto;
+                background: transparent;
+                box-shadow: none;
+                padding: 0;
+            }
+            
+            .nav-link {
+                font-size: 0.9rem;
+                padding: 0.5rem 0.8rem;
+                margin: 0.2rem;
+                color: white;
+                border-radius: 4px;
+                display: inline-block;
+            }
+            
+            .nav-link:hover {
+                color: #e53935;
+                background-color: rgba(229, 57, 53, 0.1);
+            }
+            
+            /* Prevent tiny horizontal shift on some mobiles */
+            html, body {
+                overflow-x: hidden;
+                width: 100%;
+            }
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 1rem 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        /* Hide-on-scroll state */
+        .nav.nav--hidden {
+            transform: translateY(-100%);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+        
+        .nav-link:hover {
+            background-color: rgba(229, 57, 53, 0.1);
+            color: #e53935;
+        }
+
+        /* FAQ Styles */
+        .faq-container {
+            margin-top: 2rem;
+        }
+        
+        .faq-item {
+            background: #1a1a1a;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .faq-item {
+            cursor: pointer;
+        }
+        
+        .faq-item h3 {
+            margin: 0;
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.1rem;
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-item:hover h3 {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Services Section Styles */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2.5rem;
+            width: 100%;
+        }
+        
+        .service-box {
+            position: relative;
+            height: 300px;
+            border-radius: 10px;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .service-box img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .service-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            color: white;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        }
+        
+        .service-content h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        
+        .service-content p {
+            margin: 0;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+            
+            .service-box {
+                height: 250px;
+            }
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #f9f9f9;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            background-color: #444;
+            padding: 1.5rem;
+            margin: 0;
+            color: #f0f0f0;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .banner-content {
+                padding: 1.5rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+            
+            .nav {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                padding: 0.5rem 0;
+            }
+            
+            .nav-links {
+                gap: 0.5rem;
+            }
+            
+            .nav-link {
+                padding: 0.3rem 0.7rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    
+    <!-- Dark Theme Styles -->
+    <style>
+        /* Dark theme overrides */
+        body {
+            background-color: #1a1a1a !important;
+            color: #e0e0e0 !important;
+        }
+        
+        .content-section {
+            background-color: #1a1a1a !important;
+        }
+        
+        .content-section:nth-child(even) {
+            background-color: #222222 !important;
+        }
+        
+        .feature {
+            background: #2a2a2a !important;
+            color: #e0e0e0 !important;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+        }
+        
+        
+        
+        .testimonial-card {
+            background: #2a2a2a !important;
+            color: #e0e0e0 !important;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5) !important;
+        }
+        
+        .author-info h4 {
+            color: #e0e0e0 !important;
+        }
+        
+        .faq-item {
+            background: #2a2a2a !important;
+        }
+        
+        .faq-item h3 {
+            color: #e0e0e0 !important;
+        }
+        
+        .faq-answer {
+            background: #333333 !important;
+        }
+        
+        .faq-answer p {
+            background-color: #333333 !important;
+            color: #e0e0e0 !important;
+        }
+        
+        .contact-info {
+            background: rgba(42, 42, 42, 0.8) !important;
+            color: #e0e0e0 !important;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            background-color: #333333 !important;
+            color: #e0e0e0 !important;
+            border: 1px solid #555555 !important;
+        }
+        
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder {
+            color: #aaaaaa !important;
+        }
+        
+        .section-subtitle {
+            color: #aaaaaa !important;
+        }
+        
+        /* Keep service boxes and video banners unchanged */
+        .service-content h3,
+        .service-content p,
+        .banner-content h1,
+        .banner-content h2,
+        .banner-content p {
+            color: white !important;
+        }
+        
+        /* Services section background fix */
+        #hizmetler {
+            background-color: #1a1a1a !important;
+        }
+        
+        #hizmetler > div {
+            background-color: #1a1a1a !important;
+        }
+        
+        /* Footer styling */
+        footer {
+            background-color: #111111 !important;
+        }
+    </style>
+    <!-- Reveal Animations Styles -->
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateX(var(--tx, 0));
+            transition: transform 0.7s cubic-bezier(.22,.61,.36,1), opacity 0.7s ease;
+            will-change: transform, opacity;
+        }
+
+        .reveal-left { --tx: -60px; }
+        .reveal-right { --tx: 60px; }
+
+        .reveal.in-view {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { transition: none; }
+        }
+    </style>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<nav class="nav">
+    <div class="nav-links">
+        <a href="#anasayfa" class="nav-link">Ana Sayfa</a>
+        <a href="#neden-biz" class="nav-link">Neden Biz?</a>
+        <a href="#hizmetler" class="nav-link">Hizmetlerimiz</a>
+        <a href="#hakkimizda" class="nav-link">Hakkımızda</a>
+        <a href="#iletisim" class="nav-link">Bize Ulaşın</a>
+    </div>
+</nav>
+    
+    <section id="anasayfa" class="video-banner">
+        <video id="video1" autoplay muted loop playsinline disablePictureInPicture>
+            <source src="videos/7362582-Hd 1920 1080 24Fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="banner-content">
+            <h1>Motto Kurye</h1>
+            <p>Yandex PRO Resmi İş Ortağı – Hızlı ve Güvenilir Teslimat</p>
+            <a href="#iletisim" class="cta-button">Ücretsiz Danışmanlık Al</a>
+        </div>
+        <a href="#neden-biz" class="scroll-down">↓</a>
+    </section>
+
+    <section id="neden-biz" class="content-section">
+        <div class="content-wrapper">
+            <h2>Neden Motto Kurye?</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-motorcycle"></i>
+                    <h3>Hızlı Teslimat</h3>
+                    <p>Şehir içi gönderileriniz için dakik çözümler.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Güvenli Taşıma</h3>
+                    <p>Paketlerinize her adımda özen gösteriyoruz.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-route"></i>
+                    <h3>Optimum Rota</h3>
+                    <p>Yandex PRO deneyimiyle en verimli güzergah.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>Kolay İletişim</h3>
+                    <p>Instagram üzerinden hızlıca bize ulaşın.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hizmetler" class="content-section" style="padding: 0 0 100px 0;">
+        <div style="background-color: #f9f9f9; width: 100%;">
+            <div class="content-wrapper">
+                <h2>Hizmetlerimiz</h2>
+                <p class="section-subtitle">Şehir içi teslimatlarınız için hızlı ve güvenilir çözümler.</p>
+            
+            <div class="services-grid">
+                <!-- Moto Kurye -->
+                <div class="service-box">
+                    <img src="photos/1.jpg" alt="Moto Kurye">
+                    <div class="service-content">
+                        <h3>Moto Kurye</h3>
+                        <p>Gün içi teslimatlar için en hızlı çözüm.</p>
+                    </div>
+                </div>
+
+                <!-- Express Teslimat -->
+                <div class="service-box">
+                    <img src="photos/2.jpg" alt="Express Teslimat">
+                    <div class="service-content">
+                        <h3>Express Teslimat</h3>
+                        <p>Acil gönderileriniz için öncelikli taşıma.</p>
+                    </div>
+                </div>
+
+                <!-- Planlı Teslimat -->
+                <div class="service-box">
+                    <img src="photos/3.jpg" alt="Planlı Teslimat">
+                    <div class="service-content">
+                        <h3>Planlı Teslimat</h3>
+                        <p>Belirlenen saat aralıklarında teslimat.</p>
+                    </div>
+                </div>
+
+                <!-- Kurumsal Çözümler -->
+                <div class="service-box">
+                    <img src="photos/4.jpg" alt="Kurumsal Çözümler">
+                    <div class="service-content">
+                        <h3>Kurumsal Çözümler</h3>
+                        <p>İş ortaklarına özel kurye ve rota optimizasyonu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <section class="video-banner">
+        <video id="video2" autoplay muted loop playsinline disablePictureInPicture>
+            <source src="videos/4266804-Uhd 3840 2160 30Fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="banner-content">
+            <h2>Vizyonumuz</h2>
+            <p>İş ortaklarımız için zamanında ve güvenilir teslimatı standart haline getirmek.</p>
+        </div>
+    </section>
+
+    <section id="hakkimizda" class="content-section">
+        <div class="content-wrapper">
+            <h2>Motto Kurye Hakkında</h2>
+            <p>Motto Kurye, şehir içi teslimatlarda hız ve güveni bir araya getirir. Yandex PRO iş ortaklığıyla, en verimli rotaları kullanarak gönderilerinizi tam zamanında teslim ederiz.</p>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>Profesyonel Ekip</h3>
+                    <p>Deneyimli sürücüler ve operasyon ekibi.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <h3>Zamanında Teslim</h3>
+                    <p>Söz verilen saat aralığında teslimat.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-box-open"></i>
+                    <h3>Özenli Taşıma</h3>
+                    <p>Paketlerinizin güvenliğini ön planda tutuyoruz.</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Gelişmiş Rotalama</h3>
+                    <p>Yandex PRO altyapısıyla verimli güzergah planlama.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="video-banner">
+        <video id="video3" autoplay muted loop playsinline disablePictureInPicture>
+            <source src="videos/7835658-Uhd 3840 2160 25Fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="banner-content">
+            <h2>Misyonumuz</h2>
+            <p>Gönderilerinizi en güvenli ve hızlı şekilde, kesintisiz iletişimle ulaştırmak.</p>
+        </div>
+    </section>
+
+    <section id="yorumlar" class="content-section" style="background-color: #f8f9fa;">
+        <div class="content-wrapper">
+            <h2>Müşteri Yorumları</h2>
+            <p class="section-subtitle">Müşterilerimizin deneyimlerini keşfedin.</p>
+            
+            <div class="testimonials-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Motto Kurye ile gönderilerimiz sorunsuz ve zamanında ulaşıyor. Ekip çok ilgili ve profesyonel. Kesinlikle tavsiye ederim!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Ayşe K.</h4>
+                            <p>6 Aylık Üye</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Motto Kurye'nin esnek çalışma saatleriyle gönderilerimiz mesai sonrası bile sorunsuz teslim ediliyor. Ekip hızlı ve çözüm odaklı."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Mehmet Y.</h4>
+                            <p>3 Aylık Üye</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Acil evrak teslimlerinde her seferinde zamanında yetiştiler. Süreç şeffaf ve iletişim çok hızlı."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Zeynep T.</h4>
+                            <p>4 Aylık Üye</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"İşlerimiz için Motto Kurye'yi tercih ettik. İletişim hızlı, teslimatlar zamanında. Güvenle çalışıyoruz."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Ahmet D.</h4>
+                            <p>5 Aylık Üye</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="google-reviews" style="margin-top: 3rem; text-align: center;">
+                <a href="#" class="google-reviews-btn">
+                    <i class="fab fa-google"></i> Google'da 4.9/5 (127 Değerlendirme)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim" class="content-section" style="background-color: rgba(0, 0, 0, 0.9); color: white;">
+        <div class="content-wrapper">
+            <h2>Bize Ulaşın</h2>
+            <p>Instagram DM ile hızlıca bize ulaşabilirsiniz. Tüm taleplere en kısa sürede dönüş yapıyoruz.</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 style="padding-bottom: 16px;">İletişim</h3>
+                    <p>
+                        <i class="fab fa-instagram"></i>
+                        <a href="https://www.instagram.com/motto_kurye/" target="_blank" rel="noopener" style="color:#fff; text-decoration: underline;">@motto_kurye</a>
+                    </p>
+                    <p><i class="fas fa-briefcase"></i> Yandex PRO Resmi İş Ortağı</p>
+                </div>
+                <div class="map-wrapper">
+                    <iframe
+                        class="map-container"
+                        src="https://www.google.com/maps?q=%C4%B0zmir&output=embed"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sss" class="content-section">
+        <div class="content-wrapper">
+            <h2>Sıkça Sorulan Sorular</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h3>Hangi bölgelerde hizmet veriyorsunuz? <span class="faq-toggle">+</span></h3>
+                    <div class="faq-answer">
+                        <p>Şehir içi teslimatlarda aktif olarak çalışıyoruz. Detaylı bilgi ve erişim için Instagram üzerinden bize yazabilirsiniz.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Teslimat süresi ne kadar? <span class="faq-toggle">+</span></h3>
+                    <div class="faq-answer">
+                        <p>Mesafe ve trafik durumuna göre değişir. En hızlı çözüm için gönderi detayınızı Instagram DM ile iletin, süre paylaşalım.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Hangi gönderileri taşıyorsunuz? <span class="faq-toggle">+</span></h3>
+                    <div class="faq-answer">
+                        <p>Standart paket ve evrak taşımacılığı yapıyoruz. Özel boyut/fragile gönderiler için Instagram üzerinden bilgi verin.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h3>Ödeme nasıl yapılıyor? <span class="faq-toggle">+</span></h3>
+                    <div class="faq-answer">
+                        <p>Gönderi detayına göre bilgi veriyoruz. Hızlı fiyatlandırma için Instagram DM’den yazabilirsiniz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background-color: rgba(0, 0, 0, 0.9); color: white; text-align: center; padding: 2rem 0;">
+        <div class="content-wrapper">
+            <p>© 2025 Motto Kurye. Tüm hakları saklıdır.</p>
+            <div class="social-links" style="margin-top: 1rem;">
+                <a href="https://www.instagram.com/motto_kurye/" style="color: white; margin: 0 10px; font-size: 1.5rem;" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        /* Video Banner Styles */
+        .video-banner {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .video-banner video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Fallback for mobile devices */
+        @media (max-width: 768px) {
+            .video-banner video {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        /* Contact Toggle Styles */
+        .contact-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .contact-toggle-btn {
+            background: #e53935;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(229, 57, 53, 0.3);
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .contact-toggle-btn:hover {
+            background: #c62828;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(229, 57, 53, 0.4);
+        }
+        
+        .contact-toggle-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .contact-options {
+            position: absolute;
+            bottom: 60px;
+            right: 0;
+            display: none;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 160px;
+        }
+        
+        .contact-toggle.active .contact-options {
+            display: flex;
+            animation: slideUp 0.3s ease;
+        }
+        
+        .contact-option {
+            background: white;
+            color: #333;
+            border: none;
+            border-radius: 25px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .contact-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .whatsapp-option:hover {
+            background: #25d366;
+            color: white;
+        }
+        
+        .instagram-option:hover {
+            background: #e4405f;
+            color: white;
+        }
+        
+        .contact-option svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .contact-toggle {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .contact-toggle-btn {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+            
+            .contact-options {
+                bottom: 50px;
+                min-width: 140px;
+            }
+            
+            .contact-option {
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+        }
+    </style>
+    <style>
+        /* Contact section sizing overrides */
+        #iletisim .contact-container { align-items: stretch; }
+        #iletisim .map-wrapper { display: flex; flex-direction: column;}
+        #iletisim .map-container { flex: 1 1 auto; width: 100%; height: 100% !important; }
+        /* Responsive minimum heights to balance columns */
+        @media (max-width: 991.98px) {
+            #iletisim .map-container { min-height: 300px !important; }
+        }
+        @media (min-width: 992px) {
+            #iletisim .map-container { min-height: 420px !important; }
+            #iletisim .contact-info { min-height: 420px; }
+        }
+    </style>
+    <script>
+        // Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.createElement('div');
+            menuBtn.className = 'menu-btn';
+            menuBtn.innerHTML = '<div class="menu-btn__lines"></div>';
+            document.querySelector('nav').appendChild(menuBtn);
+            
+            const menuToggle = document.querySelector('.menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            
+            menuToggle.addEventListener('click', function() {
+                menuToggle.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // Close menu when clicking on a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.nav') && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Contact toggle functionality (replaces chatbot)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create contact toggle button
+            const contactToggle = document.createElement('div');
+            contactToggle.className = 'contact-toggle';
+            contactToggle.innerHTML = `
+                <div class="contact-toggle-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 2H4C2.9 2 2 2.9 2 4V22L6 18H20C21.1 18 22 17.1 22 16V4C22 2.9 21.1 2 20 2ZM20 16H5.17L4 17.17V4H20V16Z" fill="currentColor"/>
+                        <circle cx="7" cy="9" r="1" fill="currentColor"/>
+                        <circle cx="12" cy="9" r="1" fill="currentColor"/>
+                        <circle cx="17" cy="9" r="1" fill="currentColor"/>
+                    </svg>
+                    <span>İletişim</span>
+                </div>
+                <div class="contact-options">
+                    <div class="contact-option whatsapp-option">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382C17.367 14.382 17.188 14.319 16.935 14.193C16.683 14.067 15.934 13.703 15.712 13.615C15.49 13.527 15.331 13.483 15.173 13.735C15.014 13.988 14.744 14.319 14.609 14.478C14.474 14.637 14.339 14.656 14.087 14.53C13.834 14.403 13.031 14.141 12.073 13.287C11.324 12.62 10.799 11.799 10.664 11.546C10.529 11.294 10.648 11.169 10.775 11.043C10.887 10.931 11.025 10.751 11.151 10.616C11.277 10.481 11.321 10.384 11.409 10.225C11.497 10.067 11.453 9.932 11.39 9.806C11.327 9.68 10.802 8.468 10.606 7.963C10.415 7.475 10.221 7.541 10.077 7.534C9.94 7.527 9.781 7.526 9.622 7.526C9.464 7.526 9.199 7.589 8.977 7.842C8.755 8.094 8.354 8.458 8.354 9.67C8.354 10.882 9.24 12.056 9.366 12.215C9.492 12.373 10.798 14.382 12.768 15.462C13.278 15.694 13.677 15.834 13.988 15.939C14.498 16.095 14.967 16.073 15.342 16.017C15.756 15.955 16.663 15.643 16.859 15.287C17.055 14.931 17.055 14.632 16.992 14.537C16.929 14.441 16.77 14.378 16.518 14.252L17.472 14.382ZM12.012 21.785C10.158 21.785 8.347 21.287 6.774 20.348L6.406 20.132L2.982 21.043L3.908 17.713L3.669 17.33C2.655 15.714 2.115 13.836 2.115 11.893C2.115 6.443 6.562 2 12.012 2C17.462 2 21.909 6.443 21.909 11.893C21.909 17.343 17.462 21.785 12.012 21.785Z"/>
+                        </svg>
+                        <span>WhatsApp</span>
+                    </div>
+                    <div class="contact-option instagram-option">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.163C15.204 2.163 15.584 2.175 16.85 2.233C20.102 2.381 21.621 3.924 21.769 7.152C21.827 8.417 21.838 8.797 21.838 12.001C21.838 15.206 21.826 15.585 21.769 16.85C21.62 20.075 20.105 21.621 16.85 21.769C15.584 21.827 15.206 21.839 12 21.839C8.796 21.839 8.416 21.827 7.151 21.769C3.891 21.62 2.38 20.07 2.232 16.849C2.174 15.584 2.162 15.205 2.162 12C2.162 8.796 2.175 8.417 2.232 7.151C2.381 3.924 3.896 2.38 7.151 2.232C8.417 2.175 8.796 2.163 12 2.163ZM12 0C8.741 0 8.333 0.014 7.053 0.072C2.695 0.272 0.273 2.69 0.073 7.052C0.014 8.333 0 8.741 0 12C0 15.259 0.014 15.668 0.072 16.948C0.272 21.306 2.69 23.728 7.052 23.928C8.333 23.986 8.741 24 12 24C15.259 24 15.668 23.986 16.948 23.928C21.302 23.728 23.73 21.31 23.927 16.948C23.986 15.668 24 15.259 24 12C24 8.741 23.986 8.333 23.928 7.053C23.732 2.699 21.311 0.273 16.949 0.073C15.668 0.014 15.259 0 12 0ZM12 5.838C8.597 5.838 5.838 8.597 5.838 12C5.838 15.403 8.597 18.162 12 18.162C15.403 18.162 18.162 15.403 18.162 12C18.162 8.597 15.403 5.838 12 5.838ZM12 16C9.791 16 8 14.209 8 12C8 9.791 9.791 8 12 8C14.209 8 16 9.791 16 12C16 14.209 14.209 16 12 16ZM18.406 4.155C18.406 4.955 17.761 5.6 16.961 5.6C16.161 5.6 15.516 4.955 15.516 4.155C15.516 3.355 16.161 2.71 16.961 2.71C17.761 2.71 18.406 3.355 18.406 4.155Z"/>
+                        </svg>
+                        <span>Instagram</span>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(contactToggle);
+            
+            // Toggle functionality
+            const toggleBtn = contactToggle.querySelector('.contact-toggle-btn');
+            const options = contactToggle.querySelector('.contact-options');
+            let isOpen = false;
+            
+            toggleBtn.addEventListener('click', function() {
+                isOpen = !isOpen;
+                contactToggle.classList.toggle('active', isOpen);
+            });
+            
+            // WhatsApp click handler
+            const whatsappOption = contactToggle.querySelector('.whatsapp-option');
+            whatsappOption.addEventListener('click', function() {
+                // Gerçek WhatsApp numarası
+                const phoneNumber = '905532619481'; // Ülke kodu + numara (+ işareti olmadan)
+                const message = 'Merhaba, Motto Kurye hakkında bilgi almak istiyorum.';
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            });
+            
+            // Instagram click handler
+            const instagramOption = contactToggle.querySelector('.instagram-option');
+            instagramOption.addEventListener('click', function() {
+                // Gerçek Instagram kullanıcı adı
+                const instagramUrl = 'https://www.instagram.com/motto_kurye/'; // Motto Kurye hesabı
+                window.open(instagramUrl, '_blank');
+            });
+            
+            // Dışarı tıklandığında kapat
+            document.addEventListener('click', function(e) {
+                if (!contactToggle.contains(e.target) && isOpen) {
+                    isOpen = false;
+                    contactToggle.classList.remove('active');
+                }
+            });
+        });
+        
+        // Touch device detection
+        function isTouchDevice() {
+            return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+        }
+
+        // Video handling for mobile devices
+        function handleVideoPlayback() {
+            const videos = document.querySelectorAll('video');
+            
+            // Play videos when user interacts with the page
+            function playVideos() {
+                videos.forEach(video => {
+                    const playPromise = video.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            // Show play button if autoplay fails
+                            const playButton = document.createElement('button');
+                            playButton.innerHTML = '▶️ Oynat';
+                            playButton.style.position = 'absolute';
+                            playButton.style.top = '50%';
+                            playButton.style.left = '50%';
+                            playButton.style.transform = 'translate(-50%, -50%)';
+                            playButton.style.padding = '10px 20px';
+                            playButton.style.borderRadius = '30px';
+                            playButton.style.border = 'none';
+                            playButton.style.background = 'rgba(229, 57, 53, 0.8)';
+                            playButton.style.color = 'white';
+                            playButton.style.fontSize = '16px';
+                            playButton.style.cursor = 'pointer';
+                            playButton.style.zIndex = '10';
+                            
+                            playButton.addEventListener('click', () => {
+                                video.play();
+                                playButton.remove();
+                            });
+                            
+                            video.parentNode.insertBefore(playButton, video);
+                        });
+                    }
+                });
+            }
+
+            // Try to play videos on page load
+            window.addEventListener('load', playVideos);
+
+            // Try to play videos on first user interaction
+            let userInteracted = false;
+            const interactionEvents = ['click', 'touchstart', 'keydown'];
+            
+            interactionEvents.forEach(event => {
+                window.addEventListener(event, () => {
+                    if (!userInteracted) {
+                        userInteracted = true;
+                        playVideos();
+                    }
+                }, { once: true });
+            });
+        }
+
+        // Initialize video handling
+        document.addEventListener('DOMContentLoaded', handleVideoPlayback);
+        
+        // Add touch class to body if touch device
+        if (isTouchDevice()) {
+            document.body.classList.add('touch-device');
+        }
+        
+        // Prevent zoom on double-tap for buttons and inputs
+        document.addEventListener('dblclick', function(e) {
+            if (['BUTTON', 'INPUT', 'A', 'TEXTAREA'].includes(e.target.tagName)) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        // FAQ Toggle
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const toggle = item.querySelector('.faq-toggle');
+                item.classList.toggle('active');
+                toggle.textContent = item.classList.contains('active') ? '−' : '+';
+            });
+        });
+
+        // Form handler with validation and EmailJS
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const messageDiv = document.getElementById('form-message');
+            const submitBtn = form.querySelector('.submit-btn');
+            
+            // Get form values
+            const name = form.name.value.trim();
+            const phone = form.phone.value.trim();
+            const email = form.email.value.trim();
+            const message = form.message.value.trim();
+            
+            // Validation
+            if (!name || !phone || !email || !message) {
+                messageDiv.className = 'form-message error';
+                messageDiv.textContent = 'Lütfen tüm alanları doldurun.';
+                messageDiv.style.display = 'block';
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                messageDiv.className = 'form-message error';
+                messageDiv.textContent = 'Geçerli bir e-posta adresi girin.';
+                messageDiv.style.display = 'block';
+                return;
+            }
+            
+            // Show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Gönderiliyor...';
+            messageDiv.style.display = 'none';
+            
+            // Send email via EmailJS
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                phone: phone,
+                message: message,
+                to_email: 'alimertkirmaz2000bjk@gmail.com'
+            };
+            
+            // EmailJS configuration (replace with your actual keys)
+            const SERVICE_ID = 'service_cw0nwsa';
+            const TEMPLATE_ID = 'template_moyxbil';
+            const PUBLIC_KEY = '3vC6NK5unqEXNyXsc';
+            
+            // Try to send email
+            if (typeof emailjs !== 'undefined' && SERVICE_ID !== 'YOUR_SERVICE_ID') {
+                emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams, PUBLIC_KEY)
+                    .then(() => {
+                        messageDiv.className = 'form-message success';
+                        messageDiv.textContent = 'Mesajınız başarıyla gönderildi! En kısa sürede size döneceğiz.';
+                        messageDiv.style.display = 'block';
+                        form.reset();
+                    })
+                    .catch((error) => {
+                        console.error('EmailJS Error:', error);
+                        messageDiv.className = 'form-message error';
+                        messageDiv.textContent = 'Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.';
+                        messageDiv.style.display = 'block';
+                    })
+                    .finally(() => {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Gönder';
+                    });
+            } else {
+                // Demo mode - EmailJS not configured yet
+                setTimeout(() => {
+                    messageDiv.className = 'form-message success';
+                    messageDiv.textContent = 'Demo: Mesajınız alındı! (EmailJS kurulumu sonrası gerçek e-posta gönderimi aktif olacak)';
+                    messageDiv.style.display = 'block';
+                    form.reset();
+                    
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Gönder';
+                }, 1000);
+            }
+        }
+
+        // Reveal-on-scroll for feature/program/testimonial/service/contact items
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectors = [
+                '.features-grid .feature',
+                '.testimonials-container .testimonial-card',
+                '.services-grid .service-box',
+                '.contact-container > *'
+            ];
+
+            const revealEls = [];
+            selectors.forEach(sel => {
+                document.querySelectorAll(sel).forEach((el, idx) => {
+                    el.classList.add('reveal', idx % 2 === 0 ? 'reveal-left' : 'reveal-right');
+                    revealEls.push(el);
+                });
+            });
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    } else {
+                        entry.target.classList.remove('in-view');
+                    }
+                });
+            }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+
+            revealEls.forEach(el => revealObserver.observe(el));
+        });
+
+        // Hero typewriter effect removed per request; restoring static text display
+
+        // Add scroll-based animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply initial styles and add to observer
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+
+        // Make the first section visible immediately
+        const firstSection = document.querySelector('section');
+        if (firstSection) {
+            firstSection.style.opacity = 1;
+            firstSection.style.transform = 'translateY(0)';
+        }
+
+        // Hide nav on scroll down, show on scroll up
+        (function() {
+            const nav = document.querySelector('.nav');
+            let lastScrollY = window.pageYOffset;
+            let ticking = false;
+
+            function onScroll() {
+                const currentY = window.pageYOffset;
+                const threshold = 80; // start hiding after some scroll
+
+                if (currentY > lastScrollY && currentY > threshold) {
+                    nav.classList.add('nav--hidden');
+                } else {
+                    nav.classList.remove('nav--hidden');
+                }
+
+                lastScrollY = currentY;
+                ticking = false;
+            }
+
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    window.requestAnimationFrame(onScroll);
+                    ticking = true;
+                }
+            }, { passive: true });
+        })();
+    </script>
+    <!-- EmailJS CDN -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    
+</body>
+</html>
